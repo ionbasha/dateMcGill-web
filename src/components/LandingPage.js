@@ -1,11 +1,22 @@
 import { React, useLayoutEffect} from 'react'
 import '../stylesheets/LandingPage.css'
+import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
+
+  const navigation = useNavigate();
 
   useLayoutEffect(() => {
     document.body.style.backgroundColor = "#ffe6fe"
   });
+
+  const handleCreateAccount = () => {
+    navigation('/createaccount')
+  }
+
+  const handleLogin = () => {
+    navigation('/login')
+  }
 
   return (
     <div className='background'>
@@ -15,10 +26,10 @@ function LandingPage() {
           <span className='landingPageTxtR'>McGill</span>
         </p>
         <div className='buttons'>
-          <button className = 'buttonLanding'>
+          <button className = 'buttonLanding' onClick={handleCreateAccount}>
             <p className = 'buttonText'>Create Account</p>
           </button>
-          <button className = 'buttonLanding'>
+          <button className = 'buttonLanding' onClick={handleLogin}>
             <p className='buttonText'>Login</p>
           </button>
         </div>

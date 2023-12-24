@@ -26,14 +26,14 @@
 }
 
 .buttonLanding {
-    border-radius: 10%;
+    border-radius: 25px;
     width: 170px;
     height: 60px;
     background-color: red;
     border-color: black;
     border-width: 2px;
     text-align: center;
-    margin: 20px;
+    margin: 15px;
     border-style: solid;
 }
 
@@ -44,7 +44,7 @@
 }
 
 button:hover {
-    opacity: 0.9;
+    opacity: 0.8;
     cursor: pointer;
   }
 
