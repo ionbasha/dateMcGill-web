@@ -1,0 +1,24 @@
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    margin: 20px;
+    border-width: 1px;
+    border-color: white;
+}
+
+select {
+    margin-top: 10px;
+    margin-bottom: 4px
+}
