@@ -1,10 +1,13 @@
 import React from 'react'
 import { useLayoutEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import '../stylesheets/LandingPage.css'
 import '../stylesheets/CreateAccount.css'
 import axios from 'axios'
 
 function CreateAccount() {
+
+  let navigate = useNavigate();
 
   useLayoutEffect(() => {
     document.body.style.backgroundColor = "#ffe6fe"
@@ -33,7 +36,8 @@ function CreateAccount() {
     }))
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
+    e.preventDefault()
     try {
       if(
         userInfo.firstName === '' ||
@@ -48,6 +52,39 @@ function CreateAccount() {
         userInfo.pfp === ''
       ) {
         alert("Please fill out each field.")
+        return
+      }
+      else if(userInfo.confirmPassword !== userInfo.password) {
+        alert("Passwords do not match.")
+        return
+      }
+      else {
+        const firstName = userInfo.firstName
+        const lastName = userInfo.lastName
+        const email = userInfo.email
+        const password = userInfo.password
+        const major = userInfo.major
+        const aboutMe = userInfo.aboutMe
+        const genderAm = userInfo.genderAm
+        const genderShow = userInfo.genderShow
+        const pfp = userInfo.pfp
+
+        const response = await axios.post('http://localhost:8000/createaccount', {
+          firstName,
+          lastName,
+          email,
+          password,
+          major,
+          aboutMe,
+          genderAm,
+          genderShow,
+          pfp
+        });
+        
+        if(response.status == 200 || response.status === 201) {
+          navigate('/dashboard')
+        }
+
       }
       
     }
