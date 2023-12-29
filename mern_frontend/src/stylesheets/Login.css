@@ -1,0 +1,12 @@
+.overlayLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+    text-align: center;
+}
+
+form {
+    margin-top: 50px;
+}
